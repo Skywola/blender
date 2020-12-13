@@ -1,0 +1,276 @@
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+# Search Usage example:
+# searchitem = 'sin'
+# modulename = 'mathutils'
+# search(searchitem, modulename='bpy')
+# Default search is bpy module
+# Note: **search imports any modules that you search**
+#
+# Searchable Standalone Modules (for the above parameter "modulename")
+# aud, bgl, bl_math, blf, bmesh, bpy, bpy_extras,
+# freestyle, gpu, gpu_extras, idprop, imbuf, mathutils, math
+# If you enter only the searchitem, it will search the bpy module.
+#
+# Search Extended Usage example:
+# searchitem = 'hypo'
+# searchx(searchitem)
+# searchx is (search extended) 
+# !!! Global search.  **imports ALL standalone modules.**  !!!
+# That means, after using this to find what you need, you may want to close Blender and re-open it
+# to clear out all of the imported modules before starting on a project!
+#
+# If you can't crack it, hack it!   Yes, I just hacked Blender, oh no!!!
+# %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+import bpy
+
+def search(searchitem, modulename='bpy'):
+    if(modulename=='bpy'):
+        bpylist = dir(bpy)
+        bpylist.insert(0, 'bpy')
+        bpy_app_list = dir(bpy.app)
+        bpy_app_list.insert(0, 'bpy.app')
+        bpy_context_list = dir(bpy.context)
+        bpy_context_list.insert(0, 'bpy.context')
+        bpy_data_list = dir(bpy.data)
+        bpy_data_list.insert(0, 'bpy.data')
+        bpy_msgbus_list = dir(bpy.msgbus)
+        bpy_msgbus_list.insert(0, 'bpy.msgbus')
+        bpy_ops_list = dir(bpy.ops)
+        bpy_ops_list.insert(0, 'bpy.ops')
+        bpy_path_list = dir(bpy.path)
+        bpy_path_list.insert(0, 'bpy.path')
+        bpy_props_list = dir(bpy.props)
+        bpy_props_list.insert(0, 'bpy.props')
+        bpy_types_list = dir(bpy.types)
+        bpy_types_list.insert(0, 'bpy.types')
+        bpy_utils_list = dir(bpy.utils)
+        bpy_utils_list.insert(0, 'bpy.utils')
+        search_list = [[bpylist], [bpy_app_list], [bpy_context_list], [bpy_data_list], [bpy_msgbus_list], [bpy_ops_list], [bpy_path_list], [bpy_props_list], [bpy_types_list]]
+    #
+    if(modulename=='mathutils'):
+        import mathutils
+        mathutils_list = dir(mathutils)
+        mathutils_list.insert(0, 'import mathutils, mathutils')
+        search_list = [[mathutils_list]]
+    #
+    if(modulename=='math'):
+        import math
+        math_list = dir(math)
+        math_list.insert(0, 'import math, math')
+        search_list = [[math_list]]
+    #
+    if(modulename=='aud'):
+        import aud
+        aud_list = dir(aud)
+        aud_list.insert(0, 'import aud, aud')
+        search_list = [[aud_list]]
+    #
+    if(modulename=='bgl'):
+        import bgl
+        bgl_list = dir(bgl)
+        bgl_list.insert(0, 'import bgl, bgl')
+        search_list = [[bgl_list]]
+    #
+    if(modulename=='bl_math'):
+        import bl_math
+        bl_math_list = dir(bl_math)
+        bl_math_list.insert(0, 'import bl_math, bl_math')
+        search_list = [[bl_math_list]]
+    #
+    if(modulename=='blf'):
+        import blf
+        blf_list = dir(blf)
+        blf_list.insert(0, 'import blf, blf')
+        search_list = [[blf_list]]
+    #
+    if(modulename=='bmesh'):
+        import bmesh
+        bmesh_list = dir(bmesh)
+        bmesh_list.insert(0, 'import bmesh, bmesh')
+        bmesh_geometry_list = dir(bmesh.geometry)
+        bmesh_geometry_list.insert(0, 'import bmesh, bmesh.geometry')
+        bmesh_ops_list = dir(bmesh.ops)
+        bmesh_ops_list.insert(0, 'import bmesh, bmesh.ops')
+        bmesh_types_list = dir(bmesh.types)
+        bmesh_types_list.insert(0, 'import bmesh, bmesh.types')
+        bmesh_utils_list = dir(bmesh.utils)
+        bmesh_utils_list.insert(0, 'import bmesh, bmesh.utils')
+        search_list = [[bmesh_list], [bmesh_geometry_list], [bmesh_ops_list], [bmesh_types_list], [bmesh_utils_list]]
+    #
+    if(modulename=='bpy_extras'):
+        import bpy_extras
+        bpy_extras_list = dir(bpy_extras)
+        bpy_extras_list.insert(0, 'import bpy_extras, bpy_extras')
+        bpy_extras_io_utils_list = dir(bpy_extras.io_utils)
+        bpy_extras_io_utils_list.insert(0, 'import bpy_extras, bpy_extras.io_utils')
+        bpy_extras_node_utils_list = dir(bpy_extras.node_utils)
+        bpy_extras_node_utils_list.insert(0, 'import bpy_extras, bpy_extras.node_utils')
+        bpy_extras_object_utils_list = dir(bpy_extras.object_utils)
+        bpy_extras_object_utils_list.insert(0, 'import bpy_extras, bpy_extras.object_utils')
+        search_list = [[bpy_extras_list], [bpy_extras_io_utils_list], [bpy_extras_node_utils_list], [bpy_extras_object_utils_list]]
+    #
+    if(modulename=='freestyle'):
+        import freestyle
+        freestyle_list = dir(freestyle)
+        freestyle_list.insert(0, 'import freestyle, a standalone module')
+        freestyle_chainingiterators_list = dir(freestyle.chainingiterators)
+        freestyle_chainingiterators_list.insert(0, 'import freestyle, freestyle.chainingiterators')
+        freestyle_functions_list = dir(freestyle.functions)
+        freestyle_functions_list.insert(0, 'import freestyle, freestyle.functions')
+        freestyle_predicates_list = dir(freestyle.predicates)
+        freestyle_predicates_list.insert(0, 'import freestyle, freestyle.predicates')
+        freestyle_shaders_list = dir(freestyle.shaders)
+        freestyle_shaders_list.insert(0, 'import freestyle, freestyle.shaders')
+        freestyle_types_list = dir(freestyle.types)
+        freestyle_types_list.insert(0, 'import freestyle, freestyle.types')
+        freestyle_utils_list = dir(freestyle.utils)
+        freestyle_utils_list.insert(0, 'import freestyle, freestyle.utils')
+        search_list = [[freestyle_list], [freestyle_chainingiterators_list], [freestyle_functions_list], [freestyle_predicates_list], [freestyle_shaders_list], [freestyle_types_list], [freestyle_utils_list]]
+    #
+    if(modulename=='gpu'):
+        import gpu
+        gpu_list = dir(gpu)
+        gpu_list.insert(0, 'gpu, gpu')
+        gpu_types_list = dir(gpu.types)
+        gpu_types_list.insert(0, 'import gpu, gpu.types')
+        gpu_matrix_list = dir(gpu.matrix)
+        gpu_matrix_list.insert(0, 'import gpu, gpu.matrix')
+        gpu_select_list = dir(gpu.select)
+        gpu_select_list.insert(0, 'import gpu, gpu.select')
+        gpu_shader_list = dir(gpu.shader)
+        gpu_shader_list.insert(0, 'import gpu, gpu.shader')
+        search_list = [[gpu_list], [gpu_types_list], [gpu_matrix_list], [gpu_select_list], [gpu_shader_list]]
+    #
+    if(modulename=='gpu_extras'):
+        import gpu_extras
+        gpu_extras_list = dir(gpu_extras)
+        gpu_extras_list.insert(0, 'gpu_extras, gpu_extras')
+        search_list = [[gpu_extras_list]]
+    #
+    if(modulename=='idprop'):
+        import idprop
+        idprop_types_list = dir(idprop.types)
+        idprop_types_list.insert(0, 'import idprop, idprop.types')
+        search_list = [[idprop_types_list]]
+    #
+    if(modulename=='imbuf'):
+        import imbuf
+        imbuf_list = dir(imbuf)
+        imbuf_list.insert(0, 'import imbuf, imbuf')
+        search_list = [[imbuf_list]]
+    #
+    notfound = True
+    for lol in search_list:
+        for list in lol:
+            for item in list:
+                if searchitem.lower() in item.lower():
+                    print(list[0] + "." + item)
+                    notfound = False
+    #
+    if(notfound):
+        print('Item not found')
+        print()
+        print('Searchable Standalone Modules:')
+        print('aud, bgl, bl_math, blf, bmesh, bpy, bpy_extras,')
+        print('freestyle, gpu, gpu_extras, idprop, imbuf, mathutils, math')
+
+
+
+def searchx(searchitem):
+    import mathutils
+    mathutils_array = dir(mathutils)
+    mathutils_array.insert(0, 'import mathutils, mathutils')
+    #
+    import math
+    math_array = dir(math)
+    math_array.insert(0, 'import math, math')
+    #
+    import aud
+    aud_array = dir(aud)
+    aud_array.insert(0, 'import aud, aud')
+    #
+    import bgl
+    bgl_array = dir(bgl)
+    bgl_array.insert(0, 'import bgl, bgl')
+    #
+    import bl_math
+    bl_math_array = dir(bl_math)
+    bl_math_array.insert(0, 'import bl_math, bl_math')
+    #
+    import blf
+    blf_array = dir(blf)
+    blf_array.insert(0, 'import blf, blf')
+    #
+    import bmesh
+    bmesh_array = dir(bmesh)
+    bmesh_array.insert(0, 'import bmesh, bmesh')
+    bmesh_geometry_array = dir(bmesh.geometry)
+    bmesh_geometry_array.insert(0, 'import bmesh, bmesh.geometry')
+    bmesh_ops_array = dir(bmesh.ops)
+    bmesh_ops_array.insert(0, 'import bmesh, bmesh.ops')
+    bmesh_types_array = dir(bmesh.types)
+    bmesh_types_array.insert(0, 'import bmesh, bmesh.types')
+    bmesh_utils_array = dir(bmesh.utils)
+    bmesh_utils_array.insert(0, 'import bmesh, bmesh.utils')
+    #
+    import bpy_extras
+    bpy_extras_array = dir(bpy_extras)
+    bpy_extras_array.insert(0, 'import bpy_extras, bpy_extras')
+    bpy_extras_io_utils_array = dir(bpy_extras.io_utils)
+    bpy_extras_io_utils_array.insert(0, 'import bpy_extras, bpy_extras.io_utils')
+    bpy_extras_node_utils_array = dir(bpy_extras.node_utils)
+    bpy_extras_node_utils_array.insert(0, 'import bpy_extras, bpy_extras.node_utils')
+    bpy_extras_object_utils_array = dir(bpy_extras.object_utils)
+    bpy_extras_object_utils_array.insert(0, 'import bpy_extras, bpy_extras.object_utils')
+    #
+    import freestyle
+    freestyle_array = dir(freestyle)
+    freestyle_array.insert(0, 'import freestyle, a standalone module')
+    freestyle_chainingiterators_array = dir(freestyle.chainingiterators)
+    freestyle_chainingiterators_array.insert(0, 'import freestyle, freestyle.chainingiterators')
+    freestyle_functions_array = dir(freestyle.functions)
+    freestyle_functions_array.insert(0, 'import freestyle, freestyle.functions')
+    freestyle_predicates_array = dir(freestyle.predicates)
+    freestyle_predicates_array.insert(0, 'import freestyle, freestyle.predicates')
+    freestyle_shaders_array = dir(freestyle.shaders)
+    freestyle_shaders_array.insert(0, 'import freestyle, freestyle.shaders')
+    freestyle_types_array = dir(freestyle.types)
+    freestyle_types_array.insert(0, 'import freestyle, freestyle.types')
+    freestyle_utils_array = dir(freestyle.utils)
+    freestyle_utils_array.insert(0, 'import freestyle, freestyle.utils')
+    #
+    import gpu
+    gpu_array = dir(gpu)
+    gpu_array.insert(0, 'gpu, gpu')
+    gpu_types_array = dir(gpu.types)
+    gpu_types_array.insert(0, 'import gpu, gpu.types')
+    gpu_matrix_array = dir(gpu.matrix)
+    gpu_matrix_array.insert(0, 'import gpu, gpu.matrix')
+    gpu_select_array = dir(gpu.select)
+    gpu_select_array.insert(0, 'import gpu, gpu.select')
+    gpu_shader_array = dir(gpu.shader)
+    gpu_shader_array.insert(0, 'import gpu, gpu.shader')
+    #
+    import gpu_extras
+    gpu_extras_array = dir(gpu_extras)
+    gpu_extras_array.insert(0, 'gpu_extras, gpu_extras')
+    #
+    import idprop.types
+    idprop_types_array = dir(idprop.types)
+    idprop_types_array.insert(0, 'import idprop, idprop.types')
+    #
+    import imbuf
+    imbuf_array = dir(imbuf)
+    imbuf_array.insert(0, 'import imbuf, imbuf')
+    #
+    notfound = True
+    searchx_arrays = [mathutils_array, math_array, aud_array, bgl_array, bl_math_array, blf_array, bmesh_array, bmesh_geometry_array, bmesh_ops_array, bmesh_types_array, bmesh_utils_array, bpy_extras_array, bpy_extras_io_utils_array, bpy_extras_node_utils_array, bpy_extras_object_utils_array, freestyle_array, freestyle_chainingiterators_array, freestyle_functions_array, freestyle_predicates_array, freestyle_shaders_array, freestyle_types_array, freestyle_utils_array, gpu_array, gpu_types_array, gpu_matrix_array, gpu_select_array, gpu_shader_array, gpu_extras_array, idprop_types_array, imbuf_array]
+    for array in searchx_arrays:
+        for item in array:
+            if searchitem.lower() in item.lower():
+                print(array[0] + "." + item)
+                notfound = False
+    #
+    if(notfound):
+        print('Item not found')
